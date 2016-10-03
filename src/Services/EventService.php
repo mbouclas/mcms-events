@@ -184,6 +184,9 @@ class EventService
         }
 
         foreach ($event['related'] as $index => $item) {
+            $event['related'][$index]['dest_model'] = ( ! isset($item['dest_model']))
+                ? $event['related'][$index]['dest_model'] = $item['model']
+                : $event['related'][$index]['dest_model'] = $item['dest_model'];
             $event['related'][$index]['model'] = get_class($Event);
         }
 
