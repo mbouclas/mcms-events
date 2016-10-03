@@ -1,0 +1,14 @@
+{
+  "name" : "Events",
+  "package" : "package-events",
+  "modules" : [
+    "mcms.events"
+  ],
+  "files" : {
+    "js" : [
+      "vendor/mcms/events/js/events-compiled.js"
+    ],
+    "css" : [
+    ]
+  }
+}
