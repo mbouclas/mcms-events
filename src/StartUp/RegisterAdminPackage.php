@@ -2,10 +2,8 @@
 
 namespace Mcms\Events\StartUp;
 
-
-use Mcms\Events\Menu\PagesInterfaceMenuConnector;
-use Mcms\Events\Models\Page;
 use Illuminate\Support\ServiceProvider;
+use Mcms\Events\Menu\EventsInterfaceMenuConnector;
 use ModuleRegistry, ItemConnector;
 
 class RegisterAdminPackage
@@ -14,7 +12,7 @@ class RegisterAdminPackage
     {
         ModuleRegistry::registerModule('mcms/events/admin.package.json');
         try {
-//            ItemConnector::register((new PagesInterfaceMenuConnector())->run()->toArray());
+            ItemConnector::register((new EventsInterfaceMenuConnector())->run()->toArray());
         } catch (\Exception $e){
 
         }
