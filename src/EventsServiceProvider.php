@@ -37,7 +37,7 @@ class EventsServiceProvider extends ServiceProvider
     public function boot(DispatcherContract $events, GateContract $gate, Router $router)
     {
         $this->publishes([
-            __DIR__ . '/../config/config.php' => config_path('mcmsEvents.php'),
+            __DIR__ . '/../config/events.php' => config_path('events.php'),
         ], 'config');
 
         $this->publishes([
