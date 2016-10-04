@@ -2,7 +2,7 @@
 
     <md-toolbar class="md-table-toolbar md-default">
         <div class="md-toolbar-tools">
-            <h2 class="md-title">{{ VM.Pagination.total }} Pages</h2>
+            <h2 class="md-title">{{ VM.Pagination.total }} Events</h2>
             <div flex=""></div>
             <md-button class="md-icon-button" ng-click="VM.toggleFilters()">
                 <md-icon class="material-icons">filter_list</md-icon>
@@ -46,9 +46,7 @@
                 <h4>
                     <label class="label label-success" ng-if="item.active">Active</label>
                     <label class="label label-error" ng-if="!item.active">Disabled</label>
-                    <span ng-repeat="cat in item.categories">
-                    <span ng-bind="cat.title[VM.defaultLang]"></span>
-                    <span ng-if="!$last">,</span>
+                    Starts @ <strong>{{ item.ends_at | moment }}</strong> Ends @ <strong>{{ item.ends_at | moment }}</strong>
                 </span></h4>
                 <p>{{ item.created_at | moment }}</p>
             </div>

@@ -1,7 +1,7 @@
 <md-card class="md-whitespace-4dp">
     <md-toolbar class="md-table-toolbar md-default">
         <div class="md-toolbar-tools">
-            <h2 class="md-title">{{ VM.Item.title[VM.defaultLang] || 'Create Page'}}</h2>
+            <h2 class="md-title">{{ VM.Item.title[VM.defaultLang] || 'Create Event'}}</h2>
             <div flex></div>
             <md-button class="md-fab md-hue-2 md-accent" aria-label="preview"
                        ng-if="VM.Item.id && VM.previewAvailable"
@@ -34,7 +34,7 @@
 
     <div layout="{{ layout || 'column' }}">
     <div ng-class="{'flex-40':preview}">
-    <edit-page item="VM.Item" on-save="VM.onSave(item, isNew)"></edit-page>
+    <edit-event item="VM.Item" on-save="VM.onSave(item, isNew)"></edit-event>
     </div>
         <div class="flex-60" ng-if="preview">
             <div flex style="position: relative; height: 100%;">

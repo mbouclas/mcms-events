@@ -14,7 +14,7 @@
         Menu.addMenu(Menu.newItem({
             id: 'events',
             title: 'Events',
-            permalink: '',
+            permalink: '/events',
             icon: 'event',
             order: 2,
             acl: {
@@ -22,28 +22,14 @@
                 permission: 2
             }
         }));
-
-        var eventsMenu = Menu.find('events');
-
-        eventsMenu.addChildren([
-            Menu.newItem({
-                id: 'events-manager',
-                title: 'List',
-                permalink: '/events',
-                icon: 'event_note',
-                order : 1
-            }),
-            Menu.newItem({
-                id: 'events-add',
-                title: 'Create new',
-                permalink: '/events',
-                icon: 'note_add',
-                order : 2
-            })
-        ]);
     }
-
 })();
 
 require('./config');
+require('./routes');
+require('./dataService');
+require('./service');
+require('./EventsHomeController');
+require('./EventController');
+require('./editEvent.component');
 

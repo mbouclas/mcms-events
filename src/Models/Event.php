@@ -4,6 +4,7 @@ namespace Mcms\Events\Models;
 
 use Config;
 use Conner\Tagging\Taggable;
+use IdeaSeven\Core\Models\FileGallery;
 use IdeaSeven\Core\QueryFilters\Filterable;
 use IdeaSeven\Core\Traits\CustomImageSize;
 use IdeaSeven\Core\Traits\Presentable;
@@ -92,6 +93,18 @@ class Event extends Model
     {
         return $this->hasMany($this->relatedModel, 'source_item_id')
             ->where('model', get_class($this))
+            ->orderBy('orderBy','ASC');
+    }
+
+    public function galleries()
+    {
+        return $this->hasMany(Image::class, 'item_id')
+            ->where('type', '!=', 'thumb');
+    }
+
+    public function files()
+    {
+        return $this->hasMany(FileGallery::class, 'item_id')
             ->orderBy('orderBy','ASC');
     }
 
