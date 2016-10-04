@@ -2,6 +2,7 @@
 
 namespace Mcms\Events\Models;
 
+use Carbon\Carbon;
 use Config;
 use Conner\Tagging\Taggable;
 use IdeaSeven\Core\Models\FileGallery;
@@ -13,6 +14,8 @@ use IdeaSeven\Core\Traits\Userable;
 use Illuminate\Database\Eloquent\Model;
 use Mcms\Events\Models\Collections\EventsCollection;
 use Mcms\Events\Presenters\EventPresenter;
+use Mcms\Events\Services\FileConfigurator;
+use Mcms\Events\Services\ImageConfigurator;
 use Themsaid\Multilingual\Translatable;
 use IdeaSeven\FrontEnd\Helpers\Sluggable;
 use IdeaSeven\Core\Models\Image;
@@ -54,6 +57,9 @@ class Event extends Model
         'active' => 'boolean'
     ];
 
+    public $imageConfigurator = ImageConfigurator::class;
+    public $fileConfigurator = FileConfigurator::class;
+    protected $slugPattern = 'events.slug_pattern';
     protected $presenter;
     protected $relatedModel;
     public $config;
@@ -73,6 +79,33 @@ class Event extends Model
 
         if (isset($this->config['files.fileConfigurator'])){
             $this->imageConfigurator = $this->config['files.fileConfigurator'];
+        }
+
+    }
+
+    public function setStartsAtAttribute($value)
+    {
+        if ( ! isset($value) || ! $value){
+            $this->attributes['starts_at'] = Carbon::now();
+        }
+        try {
+            $this->attributes['starts_at'] = Carbon::parse($value);
+        }
+        catch (\Exception $e){
+            $this->attributes['starts_at'] = Carbon::now();
+        }
+    }
+
+    public function setEndsAtAttribute($value)
+    {
+        if ( ! isset($value) || ! $value){
+            $this->attributes['ends_at'] = Carbon::now();
+        }
+        try {
+            $this->attributes['ends_at'] = Carbon::parse($value);
+        }
+        catch (\Exception $e){
+            $this->attributes['ends_at'] = Carbon::now();
         }
 
     }

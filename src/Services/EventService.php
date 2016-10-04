@@ -16,7 +16,7 @@ use IdeaSeven\FrontEnd\Services\PermalinkArchive;
 use Mcms\Events\Exceptions\InvalidEventFormatException;
 use Mcms\Events\Models\Event;
 use Mcms\Events\Models\Related;
-use Mcms\Events\Services\EventValidator;
+
 
 
 /**
@@ -98,7 +98,7 @@ class EventService
         $Event = $this->fixTags($event, $Event);
 
         //emit an event so that some other bit of the app might catch it
-        Event::fire('menu.item.sync',$Event);
+       event('menu.item.sync',$Event);
 
         return $Event;
     }
@@ -142,7 +142,7 @@ class EventService
         //delete from related
         Related::where('model',get_class($this->model))->where('source_item_id', $id)->orWhere('item_id', $id)->delete();
         //emit an event so that some other bit of the app might catch it
-        Event::fire('menu.item.destroy',$item);
+       event('menu.item.destroy',$item);
 
         return $item->delete();
     }
@@ -153,6 +153,10 @@ class EventService
         $item = $this->model
             ->with($with)
             ->find($id);
+
+        if ($item){
+            $item = $item->relatedItems();
+        }
 
         if (isset($item->galleries)){
             $item->images = $this->imageGrouping

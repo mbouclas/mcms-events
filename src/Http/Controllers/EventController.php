@@ -65,7 +65,7 @@ class EventController extends Controller
             // $query->time
         });;
         return [
-            'item' => $this->eventService->findOne($id, ['related.item', 'galleries','tagged','files']),
+            'item' => $this->eventService->findOne($id, ['related', 'galleries','tagged','files']),
             'imageCategories' => $imageCategories,
             'extraFields' => [],
             'config' => Config::get('pages.items'),

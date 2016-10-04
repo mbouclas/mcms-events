@@ -105,17 +105,23 @@
                 label : 'Related Items',
                 file : EventsConfig.templatesDir + 'tabs/tab-related-items.html',
                 active : false,
-                alias : 'related',
+                id : 'related',
                 order : 50
             },
             {
                 label : 'SEO',
                 file : EventsConfig.templatesDir + 'tabs/tab-seo.html',
                 active : false,
-                alias : 'seo',
+                id : 'seo',
                 order : 60
             }
         ];
+
+        if (Lang.allLocales().length == 1){
+            //remove the translation tab
+            var tabIndex = lo.findIndex(vm.tabs, {id : 'translations'});
+            vm.tabs.splice(tabIndex, 1);
+        }
 
         vm.tabs = ModuleExtender.extend('events', vm.tabs);
 
@@ -179,7 +185,8 @@
             }
 
             var isNew = (!(typeof vm.Item.id == 'number'));
-
+            vm.Item.starts_at = Helpers.deComposeDate(vm.starts_at).toISOString();
+            vm.Item.ends_at = Helpers.deComposeDate(vm.ends_at).toISOString();
             return Event.save(vm.Item)
                 .then(function (result) {
                    Helpers.toast('Saved!');
@@ -220,6 +227,8 @@
                 SEO.prefill(model, vm.Item, key);
             });
 
+            vm.starts_at = Helpers.composeDate(vm.Item.starts_at);
+            vm.ends_at = Helpers.composeDate(vm.Item.ends_at);
             vm.SEO = SEO.fields();
             vm.Connectors = ItemSelector.connectors();
             vm.thumbUploadOptions.params.item_id = item.id;

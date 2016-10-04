@@ -5,11 +5,44 @@
         .controller('EventsHomeController',Controller);
 
     Controller.$inject = ['items', 'EventService', 'BottomSheet', '$mdSidenav',
-        'Dialog', 'core.services', '$rootScope', 'lodashFactory', 'LangService', '$location', '$filter'];
+        'Dialog', 'core.services', '$rootScope', 'lodashFactory', 'LangService', '$location', '$filter', 'momentFactory'];
 
     function Controller(Items, EventService, BottomSheet, $mdSidenav, Dialog, Helpers, $rootScope, lo, Lang
-        ,$location, $filter) {
-        var vm = this;
+        ,$location, $filter, moment) {
+        var vm = this,
+        Filters = {
+            title: null,
+            description: null,
+            description_long: null,
+            active: null,
+            userId: null,
+            dateStart: null,
+            dateEnd: null,
+            category_ids : [],
+            dateMode: 'created_at',
+            orderBy : 'created_at',
+            starts_at : null,
+            ends_at : null,
+            way : 'DESC',
+            page: 1,
+            limit :  10
+        };
+
+        vm.boolValues = [
+            {
+                label: 'Don\'t care',
+                value: null
+            },
+            {
+                label: 'Yes',
+                value: true
+            },
+            {
+                label: 'No',
+                value: false
+            }
+        ];
+        resetFilters();
         vm.Lang = Lang;
         vm.defaultLang = Lang.defaultLang();
         vm.Locales = Lang.locales();
@@ -82,11 +115,20 @@
 
         };
 
+        vm.resetFilters = function () {
+          resetFilters();
+          filter();
+        };
+
         setUp(Items);
 
         function setUp(res) {
             vm.Pagination = res;
             vm.Items = res.data;
+        }
+
+        function resetFilters() {
+            vm.filters = angular.copy(Filters);
         }
     }
 

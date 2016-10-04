@@ -17,8 +17,8 @@
         this.destroy = destroy;
 
 
-        function index() {
-            return $http.get(baseUrl).then(returnData);
+        function index(filters) {
+            return $http.get(baseUrl, {params : filters}).then(returnData);
         }
 
         function store(item) {

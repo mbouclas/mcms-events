@@ -33,9 +33,15 @@
                 });
         }
 
-        function save(file) {
-            return DS.update(file);
+        function save(item) {
+            if (!item.id){
+                return DS.store(item);
+            }
+
+
+            return DS.update(item);
         }
+
 
         function destroy(id) {
             return DS.destroy(id);
