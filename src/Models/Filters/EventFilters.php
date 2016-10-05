@@ -166,23 +166,42 @@ class EventFilters extends QueryFilters
         });
     }
 
+    /**
+     * Needs to be the end of the month
+     *
+     * @param null $startsAt
+     * @return $this|\Illuminate\Database\Eloquent\Builder
+     */
     public function startsAt($startsAt = null)
     {
         if ( ! $startsAt){
             return $this->builder;
         }
 
-        return $this->builder->where('starts_at', '>=', Carbon::parse($startsAt));
+
+        return ($this->request->has('startsAt') && $this->request->has('endsAt'))
+        ? $this->builder->where('starts_at', '<=', Carbon::parse($startsAt))
+        : $this->builder->where('starts_at', '>=', Carbon::parse($startsAt));
     }
 
 
+    /**
+     * needs to be current date
+     *
+     * @param null $endsAt
+     * @return $this|\Illuminate\Database\Eloquent\Builder
+     */
     public function endsAt($endsAt = null)
     {
         if ( ! $endsAt){
             return $this->builder;
         }
 
-        return $this->builder->where('ends_at', '<=', Carbon::parse($endsAt));
+        return ($this->request->has('startsAt') && $this->request->has('endsAt'))
+            ? $this->builder->where('starts_at', '<=', Carbon::parse($endsAt))
+            : $this->builder->where('ends_at', '>=', Carbon::parse($endsAt));
+
+
     }
 
 }

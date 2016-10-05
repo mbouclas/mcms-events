@@ -3,6 +3,10 @@ return [
     'event' => \Mcms\Events\Models\Event::class,
     'related' => \Mcms\Events\Models\Related::class,
     'presenter' => \Mcms\Events\Presenters\EventPresenter::class,
+    'api' => [
+        'controller' => 'Mcms\Events\Http\Controllers\ApiController',
+        'limit' => 30,
+    ],
     'slug_pattern' => '/event/%slug$s',
     'images' => [
         'optimize' => true,
