@@ -17,7 +17,7 @@ use IdeaSeven\Core\QueryFilters\QueryFilters;
 class EventFilters extends QueryFilters
 {
     use FilterableDate, FilterableOrderBy, FilterableLimit, FilterableExtraFields;
-    
+
     /**
      * @var array
      */
@@ -180,8 +180,8 @@ class EventFilters extends QueryFilters
 
 
         return ($this->request->has('startsAt') && $this->request->has('endsAt'))
-        ? $this->builder->where('starts_at', '<=', Carbon::parse($startsAt))
-        : $this->builder->where('starts_at', '>=', Carbon::parse($startsAt));
+            ? $this->builder->where('ends_at', '>=', Carbon::parse($startsAt))
+            : $this->builder->where('starts_at', '>=', Carbon::parse($startsAt));
     }
 
 
