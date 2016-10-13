@@ -63,6 +63,8 @@ class Event extends Model
     protected $presenter;
     protected $relatedModel;
     public $config;
+    public $route;
+    protected $defaultRoute = 'event';
 
     public function __construct($attributes = [])
     {
