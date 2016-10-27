@@ -27,6 +27,7 @@ class EventsInterfaceMenuConnector extends AdminInterfaceConnector
      * @var Event
      */
     protected $event;
+    protected $order = 10;
 
     protected $filters;
 
