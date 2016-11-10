@@ -74,6 +74,7 @@ class Event extends Model
         $this->relatedModel = (isset($this->config['related'])) ? $this->config['related'] : Related::class;
         $this->relatedModel = (isset($this->config['related'])) ? $this->config['related'] : Related::class;
         $this->presenter = (isset($this->config['presenter'])) ? $this->config['presenter'] : EventPresenter::class;
+        $this->defaultRoute = (isset($this->config['route'])) ? $this->config['route'] : $this->defaultRoute;
 
         if (isset($this->config['images.imageConfigurator'])){
             $this->imageConfigurator = $this->config['images.imageConfigurator'];

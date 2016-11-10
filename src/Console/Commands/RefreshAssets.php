@@ -21,7 +21,7 @@ class RefreshAssets extends Command
      *
      * @var string
      */
-    protected $description = 'Removes all old pages assets and copies the new ones';
+    protected $description = 'Removes all old assets and copies the new ones';
 
     /**
      * Create a new command instance.
