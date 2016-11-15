@@ -36,7 +36,7 @@ class ApiController extends Controller
     {
         $item = $this->service
             ->model
-            ->with(['images', 'related', 'tagged'])
+            ->with(['images', 'related', 'tagged', 'files'])
             ->where('slug', $slug)
             ->first();
 
