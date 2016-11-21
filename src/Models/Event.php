@@ -83,7 +83,6 @@ class Event extends Model
         if (isset($this->config['files.fileConfigurator'])){
             $this->imageConfigurator = $this->config['files.fileConfigurator'];
         }
-
     }
 
     public function setStartsAtAttribute($value)
