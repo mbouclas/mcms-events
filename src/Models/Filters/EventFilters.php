@@ -7,11 +7,11 @@ use App;
 
 
 use Carbon\Carbon;
-use IdeaSeven\Core\QueryFilters\FilterableDate;
-use IdeaSeven\Core\QueryFilters\FilterableExtraFields;
-use IdeaSeven\Core\QueryFilters\FilterableLimit;
-use IdeaSeven\Core\QueryFilters\FilterableOrderBy;
-use IdeaSeven\Core\QueryFilters\QueryFilters;
+use Mcms\Core\QueryFilters\FilterableDate;
+use Mcms\Core\QueryFilters\FilterableExtraFields;
+use Mcms\Core\QueryFilters\FilterableLimit;
+use Mcms\Core\QueryFilters\FilterableOrderBy;
+use Mcms\Core\QueryFilters\QueryFilters;
 
 
 class EventFilters extends QueryFilters

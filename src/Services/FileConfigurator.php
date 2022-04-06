@@ -5,8 +5,8 @@ namespace Mcms\Events\Services;
 
 use App;
 use Config;
-use IdeaSeven\Core\Helpers\Strings;
-use IdeaSeven\Core\Services\File\BaseFileConfigurator;
+use Mcms\Core\Helpers\Strings;
+use Mcms\Core\Services\File\BaseFileConfigurator;
 use Mcms\Events\Models\Event;
 
 class FileConfigurator extends BaseFileConfigurator

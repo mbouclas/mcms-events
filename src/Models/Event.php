@@ -5,20 +5,19 @@ namespace Mcms\Events\Models;
 use Carbon\Carbon;
 use Config;
 use Conner\Tagging\Taggable;
-use IdeaSeven\Core\Models\FileGallery;
-use IdeaSeven\Core\QueryFilters\Filterable;
-use IdeaSeven\Core\Traits\CustomImageSize;
-use IdeaSeven\Core\Traits\Presentable;
-use IdeaSeven\Core\Traits\Relateable;
-use IdeaSeven\Core\Traits\Userable;
 use Illuminate\Database\Eloquent\Model;
+use Mcms\Core\QueryFilters\Filterable;
+use Mcms\Core\Traits\CustomImageSize;
+use Mcms\Core\Traits\Presentable;
+use Mcms\Core\Traits\Relateable;
+use Mcms\Core\Traits\Userable;
 use Mcms\Events\Models\Collections\EventsCollection;
 use Mcms\Events\Presenters\EventPresenter;
 use Mcms\Events\Services\FileConfigurator;
 use Mcms\Events\Services\ImageConfigurator;
+use Mcms\FrontEnd\Helpers\Sluggable;
 use Themsaid\Multilingual\Translatable;
-use IdeaSeven\FrontEnd\Helpers\Sluggable;
-use IdeaSeven\Core\Models\Image;
+
 
 class Event extends Model
 {

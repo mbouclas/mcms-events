@@ -2,8 +2,9 @@
 
 namespace Mcms\Events\StartUp;
 
-use IdeaSeven\Core\Services\SettingsManager\SettingsManagerService;
+
 use Illuminate\Support\ServiceProvider;
+use Mcms\Core\Services\SettingsManager\SettingsManagerService;
 
 class RegisterSettingsManager
 {

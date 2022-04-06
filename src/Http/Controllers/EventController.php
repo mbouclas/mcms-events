@@ -4,7 +4,7 @@ namespace Mcms\Events\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Config;
-use IdeaSeven\Core\Services\SettingsManager\SettingsManagerService;
+use Mcms\Core\Services\SettingsManager\SettingsManagerService;
 use Mcms\Events\Models\Filters\EventFilters;
 use Mcms\Events\Services\EventService;
 use Illuminate\Http\Request;

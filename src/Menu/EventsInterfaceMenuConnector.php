@@ -2,10 +2,11 @@
 
 namespace Mcms\Events\Menu;
 use Config;
+use Mcms\Core\Services\Menu\AdminInterfaceConnector;
 use Mcms\Events\Models\Filters\EventFilters;
 use Mcms\Events\Models\Event;
 use Illuminate\Http\Request;
-use IdeaSeven\Core\Services\Menu\AdminInterfaceConnector;
+
 use Illuminate\Support\Collection;
 
 

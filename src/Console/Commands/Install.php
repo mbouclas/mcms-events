@@ -13,7 +13,7 @@ namespace Mcms\Events\Console\Commands;
  * If you provide me with a provision file, i will make some changes to the config file of the application
  */
 
-use IdeaSeven\Core\Helpers\Composer;
+use Mcms\Core\Helpers\Composer;
 use Mcms\Events\Console\Commands\InstallerActions\ApplyProvisionSettings;
 use Mcms\Events\Console\Commands\InstallerActions\MigrateDataBase;
 use Mcms\Events\Console\Commands\InstallerActions\PublishAssets;
@@ -107,7 +107,7 @@ class Install extends Command
 
         //add the post install command to be able to refresh assets
 
-        
+
         $this->info('Events, all Done');
         $this->info('---------------');
         $this->line('');

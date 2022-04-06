@@ -2,14 +2,14 @@
 
 namespace Mcms\Events\Presenters;
 use App;
-use IdeaSeven\Core\Services\Presenter\Presenter;
+use Mcms\Core\Services\Presenter\Presenter;
 use Mcms\Events\Models\Event;
 
 /**
  * Works as $page->present()->methodName
  *
  * Class EventPresenter
- * @package IdeaSeven\Events\Presenters
+ * @package Mcms\Events\Presenters
  */
 class EventPresenter extends Presenter
 {

@@ -5,14 +5,14 @@ namespace Mcms\Events\Services;
 
 use App;
 use Config;
-use IdeaSeven\Core\Helpers\Strings;
-use IdeaSeven\Core\Models\Image;
-use IdeaSeven\Core\Models\MenuItem;
+use Mcms\Core\Helpers\Strings;
+use Mcms\Core\Models\Image;
+use Mcms\Core\Models\MenuItem;
 
-use IdeaSeven\Core\QueryFilters\Filterable;
-use IdeaSeven\Core\Services\Image\GroupImagesByType;
-use IdeaSeven\Core\Traits\FixTags;
-use IdeaSeven\FrontEnd\Services\PermalinkArchive;
+use Mcms\Core\QueryFilters\Filterable;
+use Mcms\Core\Services\Image\GroupImagesByType;
+use Mcms\Core\Traits\FixTags;
+use Mcms\FrontEnd\Services\PermalinkArchive;
 use Mcms\Events\Exceptions\InvalidEventFormatException;
 use Mcms\Events\Models\Event;
 use Mcms\Events\Models\Related;
